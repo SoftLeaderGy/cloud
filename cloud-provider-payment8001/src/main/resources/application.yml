@@ -12,3 +12,6 @@ spring:
 mybatis:
   mapperLocations: classpath:mapper/*.xml
   type-aliases-package: com.atguigu.springcloud.entities  # 所有 Entity 别名类所在包
+logging:
+  level:
+    com.yang.springcloud.dao: debug
