@@ -33,6 +33,6 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     public CommonResult<Payment> getPaymentById(Long id) {
         Payment paymentById = paymentDao.getPaymentById(id);
-        return new CommonResult<Payment>(200,"查询成功",paymentById);
+        return new CommonResult<Payment>(200,"查询成功 端口为："+ port,paymentById);
     }
 }

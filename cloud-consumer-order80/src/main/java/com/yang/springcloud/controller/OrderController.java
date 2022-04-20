@@ -34,7 +34,7 @@ public class OrderController {
      * @param payment
      * @return
      */
-    @GetMapping("/consumer/payment/create")
+    @GetMapping("/consumer/payment/create1")
     public CommonResult<Payment> create1(Payment payment){
         ResponseEntity<CommonResult> commonResultResponseEntity = restTemplate.postForEntity(PAYMENT_URL + "/payment/create", payment, CommonResult.class);
         CommonResult body = commonResultResponseEntity.getBody();
