@@ -5,3 +5,18 @@ eureka:
     register-with-eureka: false
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+
+# 设置 feign 客户端超时时间(OpenFeign默认支持 ribbon )
+ribbon:
+  # 请求连接的超时时间 默认的时间为 1 秒
+  # 指的是建立连接所用的时间，适用于网络状况正常的情况下 , 两端连接所用的时间
+  ConnectTimeout: 5000
+
+  # 请求处理的超时时间
+  # 指的是建立连接后从服务器读取到可用资源所用的时间
+  ReadTimeout: 1000
+
+# 开启feign接口调用服务的日志
+logging:
+  level:
+    com.yang.springcloud.feign.PaymentFeignService: debug

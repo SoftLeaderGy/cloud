@@ -20,4 +20,8 @@ public interface PaymentFeignService {
     // 并且路径为"/payment/getPaymentById/{id}" 的接口
     @GetMapping("/payment/getPaymentById/{id}")
     CommonResult<Payment> getPaymentById(@PathVariable("id") Long id );
+
+
+    @GetMapping("/payment/feign/timeout")
+    Integer paymentFeignTimeOut();
 }

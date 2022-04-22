@@ -28,4 +28,14 @@ public class PaymentController {
         CommonResult<Payment> paymentById = paymentFeignService.getPaymentById(id);
         return paymentById;
     }
+
+    /**
+     * 服务消费者调用超时方法，测试Feign接口调用服务超时
+     *
+     * @return
+     */
+    @GetMapping("/payment/feign/timeout")
+    public Integer paymentFeignTimeOut() {
+        return paymentFeignService.paymentFeignTimeOut();
+    }
 }
