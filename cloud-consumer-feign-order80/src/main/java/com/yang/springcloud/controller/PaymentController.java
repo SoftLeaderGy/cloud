@@ -23,7 +23,7 @@ public class PaymentController {
     private PaymentFeignService paymentFeignService;
 
     @GetMapping("/payment/getPaymentById/{id}")
-    public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id ){
+    public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
         // 调用feign接口中的方法，feign接口调用其他服务的接口，实现本服务调用其他服务的目的
         CommonResult<Payment> paymentById = paymentFeignService.getPaymentById(id);
         return paymentById;
