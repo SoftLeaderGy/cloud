@@ -36,7 +36,7 @@ public class PaymentService {
     public String paymentInfo_timeOut(Integer id){
         Integer timeOutNum = 5;
         // 延时3秒
-        TimeUnit.SECONDS.sleep(3);
+        TimeUnit.SECONDS.sleep(2);
         return "线程池" + Thread.currentThread().getName() + "paymentInfo_timeOut ,id : " + id + "延时了" + timeOutNum + "秒";
     }
 
