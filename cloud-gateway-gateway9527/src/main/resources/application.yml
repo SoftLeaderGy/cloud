@@ -7,13 +7,18 @@ spring:
 #########    新增gateway配置start
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true # 开启从注册中心动态创建路由的功能，利用微服务名进行路由
       routes:
-        - id: payment_routh #payment_route # 路由的 ID ，没有固定规则但要求唯一，建议配合服务名
-          uri: http://localhost:8001  # 匹配后提供服务的路由地址
+        - id: payment_routh #payment_route # 路由的 ID,没有固定规则但要求唯一，建议配合服务名
+#          uri: http://localhost:8001  # 匹配后提供服务的路由地址
+          uri: lb://cloud-payment-service # 需要注意的是uri的协议为lb，表示启用Gateway的负载均衡功能
           predicates:
             - Path=/payment/getPaymentById/**  # 断言，路径相匹配的进行路由
-        - id: payment_routh #payment_route # 路由的 ID ，没有固定规则但要求唯一，建议配合服务名
-          uri: http://localhost:8001  # 匹配后提供服务的路由地址
+        - id: payment_routh #payment_route # 路由的 ID,没有固定规则但要求唯一，建议配合服务名
+#          uri: http://localhost:8001  # 匹配后提供服务的路由地址
+          uri: lb://cloud-payment-service # 需要注意的是uri的协议为lb，表示启用Gateway的负载均衡功能
           predicates:
             - Path=/payment/lb/**  # 断言，路径相匹配的进行路由
 #########    新增gateway配置end
