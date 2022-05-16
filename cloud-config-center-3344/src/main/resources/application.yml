@@ -18,3 +18,10 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:7001/eureka
+
+##rabbitmq 相关配置 , 暴露 bus 刷新配置的端点
+management:
+  endpoint: # 暴露 bus 刷新配置的端点
+    web:
+      exposure:
+        include: "bus-refresh"
